@@ -2,13 +2,16 @@
   <body>
     Static Site
     <script>
-    chrome.runtime.sendMessage(
-      "kagokaogbhanclljfdhpghbeohgjpdce",
-      { openUrlInEditor: url },
-      function (response) {
-        if (!response.success) handleError(url);
-      }
-    );
+      window.addEventListener("load", (event) => {
+          chrome.runtime.sendMessage(
+            "kagokaogbhanclljfdhpghbeohgjpdce",
+            { openUrlInEditor: url },
+            function (response) {
+              if (!response.success) handleError(url);
+            }
+          );
+          console.log("page is fully loaded");
+      });
     </script>
   </body>
 </html>
